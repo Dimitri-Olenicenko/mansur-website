@@ -1570,3 +1570,42 @@ details.profile:not([open]) .profile__body{display:none}
   }
   .tl-item__card--logo img{padding: 18px 20px}
 }
+
+
+/* ── MAP LABEL COLLISION ───────────────────────────────────────
+   Piņķi is ~13 km from Rīga; at map scale the labels would sit on
+   top of each other, so this one reads to the left of its dot. */
+.geo__pin--left .geo__pin-lbl{
+  left: auto; right: 50%; transform: translateX(-8px);
+  top: calc(100% + 7px);
+}
+
+
+/* ── MAP PIN CONTAINMENT ───────────────────────────────────────
+   .geo__map is the positioning context for the pins, but the image
+   inside is `display:inline` so the box collapsed to the line-height
+   and the absolutely-positioned pins escaped onto the content below.
+   Making the image a block gives the container its real height. */
+.geo__map{
+  position: relative;
+  display: block;
+  line-height: 0;
+  /* the grid row stretches this box taller than the image, and the pins
+     are positioned against the BOX, so they drifted below the map.
+     align-self:start makes the box hug its image. */
+  align-self: start;
+  height: fit-content;
+}
+.geo__map img{display:block; width:100%; height:auto}
+.geo__pin{z-index:2}
+.geo__pin-lbl{line-height:1.2}
+
+
+/* pins near the right edge read their label to the left of the dot */
+.geo__pin--left .geo__pin-lbl{
+  left: auto;
+  right: 50%;
+  transform: translateX(-9px);
+  top: 50%;
+  margin-top: -0.75em;
+}
