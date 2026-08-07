@@ -1,0 +1,22 @@
+/* Mobile touch-target and scaling fixes for the legacy article pages.
+   Loaded after the 2016 bundle so these rules win. Phones only. */
+@media (max-width: 780px){
+  .developer a,
+  .copyright a{
+    display:inline-flex;align-items:center;
+    min-height:44px;padding-inline:3px;
+  }
+  .content a[target="_blank"]{
+    display:inline-flex;align-items:center;min-height:44px;
+  }
+  #footer .col a{
+    display:inline-flex;align-items:center;
+    min-height:42px;padding-block:4px;
+  }
+  /* article body links stay inline, but get a taller hit area */
+  .news-text a, .text a{padding-block:6px;display:inline-block}
+
+  /* nothing may push the page sideways */
+  html,body{max-width:100%;overflow-x:hidden}
+  img,iframe,table,video{max-width:100%;height:auto}
+}
