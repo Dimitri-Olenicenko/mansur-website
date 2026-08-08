@@ -1433,9 +1433,6 @@ body.vbox-open{overflow:hidden}
   .geo{max-width:100%;overflow:hidden}
   .geo__map{max-width:100%}
   .geo__pin-lbl{max-width:40vw;overflow:hidden;text-overflow:ellipsis}
-  /* pins near the right edge flip their label to the left */
-  .geo__pin[style*="left:94"] .geo__pin-lbl,
-  .geo__pin[style*="left:83"] .geo__pin-lbl{transform:translateX(-30%)}
 
   /* ── 3. quote attribution was 11.52px ───────────────────────── */
   .quote-band cite,
@@ -1599,13 +1596,3 @@ details.profile:not([open]) .profile__body{display:none}
 .geo__map img{display:block; width:100%; height:auto}
 .geo__pin{z-index:2}
 .geo__pin-lbl{line-height:1.2}
-
-
-/* pins near the right edge read their label to the left of the dot */
-.geo__pin--left .geo__pin-lbl{
-  left: auto;
-  right: 50%;
-  transform: translateX(-9px);
-  top: 50%;
-  margin-top: -0.75em;
-}
